@@ -57,7 +57,7 @@
         <!-- Hamburger Toggle BTN -->
       </div>
 
-      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+      <div id="premium-mobile-nav" class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
         <nav>
           <ul class="tc _o sf yo cg ep">
             <li><a href="index.html" class="xl mk">Ecosystem</a></li>
@@ -84,9 +84,7 @@
             </label>
           </div>
 
-          <a href="demo.html"
-            class="ek pk xl lg:bg-blue-600 lg:text-white lg:px-6 lg:py-2.5 lg:rounded-full lg:ml-4 shadow-lg font-semibold hover:bg-blue-700 transition">Request
-            Demo</a>
+          <a href="demo.html" class="demo-btn-nav">Request Demo</a>
         </div>
       </div>
     </div>
@@ -96,43 +94,83 @@
 
   <main>
     <!-- ===== Hero Start ===== -->
-    <section id="home" class="gj do ir hj sp jr i pg">
-      <!-- Hero Images -->
-      <div class="xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
-        <img src="images/shape-01.svg" alt="shape" class="xc 2xl:ud-block h t -ud-left-[10%] ua" />
-        <img src="images/shape-02.svg" alt="shape" class="xc 2xl:ud-block h u p va" />
-        <img src="images/shape-03.svg" alt="shape" class="xc 2xl:ud-block h v w va" />
-        <img src="images/shape-04.svg" alt="shape" class="h q r" />
-        <!-- Green tint overlay -->
-        <div
-          style="position:absolute;inset:0;background:rgba(31,154,82,0.18);border-radius:inherit;pointer-events:none;z-index:2;mix-blend-mode:multiply;">
-        </div>
-        <div class="h q r i group transition duration-700 hover:scale-105">
-          <div class="h -inset-4 logo-gradient-bg sg al sk group-hover:rk transition duration-1000 blur-2xl"></div>
-          <img src="images/finz_ecosystem.png" alt="FinzTrust Ecosystem" class="h q r ua vd object-contain"
-            style="mix-blend-mode: multiply; filter: drop-shadow(0 24px 48px rgba(31,154,82,0.3));" />
-        </div>
+    <section id="home" class="ji gp uq pg relative overflow-hidden bg-white dark:bg-black">
+      <!-- Ambient background glow -->
+      <div
+        style="position:absolute;top:-20%;right:-10%;width:60%;height:130%;background:radial-gradient(ellipse at center, rgba(78,107,255,0.06) 0%, transparent 70%);pointer-events:none;z-index:0;">
+      </div>
+      <div
+        style="position:absolute;bottom:-10%;left:5%;width:40%;height:60%;background:radial-gradient(ellipse at center, rgba(31,154,82,0.05) 0%, transparent 70%);pointer-events:none;z-index:0;">
       </div>
 
-      <!-- Hero Content -->
-      <div class="bb ze ki xn 2xl:ud-px-0">
-        <div class="tc _o">
+      <div class="bb ze ki xn wq" style="position:relative;z-index:1;">
+        <div class="tc wf gg qq items-center">
+
+          <!-- LEFT: Text Content -->
           <div class="animate_left jn/2">
-            <h1 class="fk vj zp or logo-gradient-text wm wb">Unified Core Banking Ecosystem.</h1>
-            <p class="fq">
-              The primary digital storefront and lead-generation engine for MFIs and RCIs. We modernize business
-              environments through expert split of IT, accounting, and CBC integration.
+            <!-- Badge -->
+            <!-- Headline -->
+            <h1 class="fk vj zp pr logo-gradient-text wm qb mb-6"
+              style="font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.15;">
+              Unified Core Banking<br>Ecosystem.
+            </h1>
+
+            <!-- Subtext -->
+            <p class="uo mb-8" style="font-size:1.1rem;line-height:1.75;max-width:480px;">
+              Modernizing Microfinance and Rural Credit Institutions across Cambodia through elite core banking, CBC
+              integration, and regtech compliance.
             </p>
 
-            <div class="tc tf yo zf mb">
-              <a href="#demo" class="ek jk lk gh gi hi rg ml il vc _d _l">Request a Demo</a>
+            <!-- Stats Row -->
+            <div
+              style="display:flex;gap:2rem;padding:1.5rem 0;margin-bottom:2rem;border-top:1px solid rgba(128,128,128,0.15);">
+              <div>
+                <p class="gk" style="font-size:1.75rem;color:#1f9a52;margin-bottom:2px;">100+</p>
+                <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Institutions</p>
+              </div>
+              <div style="width:1px;background:rgba(128,128,128,0.15);"></div>
+              <div>
+                <p class="gk" style="font-size:1.75rem;color:#4E6BFF;margin-bottom:2px;">NBC</p>
+                <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Compliant</p>
+              </div>
+              <div style="width:1px;background:rgba(128,128,128,0.15);"></div>
+              <div>
+                <p class="gk" style="font-size:1.75rem;color:#FFBD3F;margin-bottom:2px;">12+</p>
+                <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Years</p>
+              </div>
+            </div>
 
-              <span class="tc sf">
-                <a href="#products" class="inline-block ek xj kk wm">Explore Products</a>
-                <span class="inline-block">FinzCore 360, RCI App, FinzLoan</span>
-              </span>
+            <!-- CTA Buttons -->
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+              <a href="demo.html"
+                style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2rem;border-radius:999px;font-weight:700;color:#fff;background:linear-gradient(135deg,#E63946 0%,#4E6BFF 100%);box-shadow:0 8px 30px rgba(78,107,255,0.35);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+                onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+                Request a Demo
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+              </a>
+              <a href="#products"
+                style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2rem;border-radius:999px;font-weight:600;border:1.5px solid rgba(128,128,128,0.3);transition:border-color 0.2s,color 0.2s;text-decoration:none;"
+                onmouseover="this.style.borderColor='#4E6BFF'"
+                onmouseout="this.style.borderColor='rgba(128,128,128,0.3)'">
+                Explore Products →
+              </a>
             </div>
           </div>
+
+          <!-- RIGHT: Ecosystem Mockup -->
+          <div class="animate_right jn/2 relative group" style="overflow:visible;">
+            <!-- Gradient glow behind image -->
+            <div
+              style="position:absolute;inset:-60px;background:radial-gradient(ellipse at center, rgba(31,154,82,0.18) 0%, rgba(78,107,255,0.12) 50%, transparent 75%);filter:blur(40px);pointer-events:none;z-index:0;transition:opacity 0.5s;"
+              class="group-hover:opacity-100"></div>
+            <img src="images/finz_ecosystem.png" alt="FinzTrust Ecosystem" class="vd hover-lift" style="position:relative;z-index:1;border-radius:1.5rem;max-width:100%;
+                     filter:drop-shadow(0 32px 60px rgba(31,154,82,0.2)) drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+                     transition:transform 0.4s cubic-bezier(0.165,0.84,0.44,1);" />
+          </div>
+
         </div>
       </div>
     </section>

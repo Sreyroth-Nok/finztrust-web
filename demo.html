@@ -8,6 +8,66 @@
   <link rel="icon" href="favicon.ico">
   <link href="style.css" rel="stylesheet">
   <link href="responsive.css" rel="stylesheet">
+  <link href="tailwind-patch.css" rel="stylesheet">
+  <style>
+    /* Demo Page specific scoped patch */
+    .demo-btn-nav {
+      background-color: #4E6BFF;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border-radius: 9999px;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      box-shadow: 0 4px 14px 0 rgba(78,107,255,0.39);
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    .demo-btn-nav:hover { background-color: #3b58e6; transform: translateY(-1px); }
+    
+    .demo-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .dark .demo-card { background: #1f2937; border-color: #374151; }
+    
+    .demo-form .form-group { margin-bottom: 1.25rem; }
+    .demo-form label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .demo-form .form-control {
+      width: 100%;
+      padding: 0.875rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      background: white;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+    .dark .demo-form .form-control { background: #374151; border-color: #4b5563; }
+    .demo-form .form-control:focus { outline: none; border-color: #4E6BFF; }
+    
+    .demo-submit {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background-color: #20CA66;
+      color: white;
+      font-weight: 700;
+      font-size: 1.125rem;
+      box-shadow: 0 10px 15px -3px rgba(32,202,102,0.3);
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+      border: none;
+      margin-top: 1rem;
+    }
+    .demo-submit:hover { background-color: #1aab55; transform: translateY(-2px); }
+    
+    .demo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  </style>
 </head>
 <body x-data="{ page: 'demo', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
   x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
@@ -46,8 +106,8 @@
             <li><a href="about.html" class="xl">About Us</a></li>
           </ul>
         </nav>
-        <div class="tc wf ig pb no">
-          <a href="demo.html" class="ek pk xl lg:bg-blue-600 lg:text-white lg:px-6 lg:py-2.5 lg:rounded-full lg:ml-4 shadow-lg font-semibold">Request Demo</a>
+        <div class="tc wf ig pb no" style="display:flex;align-items:center;">
+          <a href="demo.html" class="demo-btn-nav">Request Demo</a>
         </div>
       </div>
     </div>
@@ -62,29 +122,29 @@
             <p class="uo">Capture the future of your financial institution. Our consultants will listen to your challenges and provide complete CBS support.</p>
           </div>
           <div class="animate_right jn/2">
-            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
-              <form action="#!" class="demo-form space-y-4">
-                <div>
-                  <label class="block text-sm font-bold mb-1">Your Name</label>
-                  <input type="text" class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500" required />
+            <div class="demo-card">
+              <form action="#!" class="demo-form">
+                <div class="form-group">
+                  <label>Your Name</label>
+                  <input type="text" class="form-control" required />
                 </div>
-                <div>
-                  <label class="block text-sm font-bold mb-1">Institution Name</label>
-                  <input type="text" class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500" required />
+                <div class="form-group">
+                  <label>Institution Name</label>
+                  <input type="text" class="form-control" required />
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                  <div>
-                    <label class="block text-sm font-bold mb-1">Your Role</label>
-                    <select class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500">
+                <div class="demo-row">
+                  <div class="form-group">
+                    <label>Your Role</label>
+                    <select class="form-control">
                       <option>CEO</option>
                       <option>Operations Manager</option>
                       <option>IT Director</option>
                       <option>Other</option>
                     </select>
                   </div>
-                  <div>
-                    <label class="block text-sm font-bold mb-1">Product Interest</label>
-                    <select class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500">
+                  <div class="form-group">
+                    <label>Product Interest</label>
+                    <select class="form-control">
                       <option>FinzCore 360</option>
                       <option>RCI App</option>
                       <option>FinzLoan App</option>
@@ -93,7 +153,7 @@
                   </div>
                 </div>
                 <div>
-                  <button type="submit" class="w-full py-4 rounded-xl bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition shadow-lg mt-4">Submit Demo Request</button>
+                  <button type="submit" class="demo-submit">Submit Demo Request</button>
                 </div>
               </form>
             </div>

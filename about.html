@@ -9,6 +9,7 @@
   <link rel="icon" href="favicon.ico">
   <link href="style.css" rel="stylesheet">
   <link href="responsive.css" rel="stylesheet">
+  <link href="tailwind-patch.css" rel="stylesheet">
   <style>
     .logo-gradient-text {
       background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%);
@@ -66,7 +67,7 @@
         </button>
         <!-- Hamburger Toggle BTN -->
       </div>
-      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+      <div id="premium-mobile-nav" class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
         <nav>
           <ul class="tc _o sf yo cg ep">
             <li><a href="index.html" class="xl">Ecosystem</a></li>
@@ -76,10 +77,8 @@
             <li><a href="about.html" class="xl mk">About Us</a></li>
           </ul>
         </nav>
-        <div class="tc wf ig pb no">
-          <a href="demo.html"
-            class="ek pk xl lg:bg-blue-600 lg:text-white lg:px-6 lg:py-2.5 lg:rounded-full lg:ml-4 shadow-lg font-semibold">Request
-            Demo</a>
+        <div class="tc wf ig pb no" style="display:flex;align-items:center;">
+          <a href="demo.html" class="demo-btn-nav">Request Demo</a>
         </div>
       </div>
     </div>
@@ -103,7 +102,7 @@
                 <p class="text-sm opacity-70">Years Experience</p>
               </div>
               <div>
-                <h3 class="ck gk nh">2020</h3>
+                <h3 class="ck gk ">2020</h3>
                 <p class="text-sm opacity-70">Formal Registration</p>
               </div>
               <div>
@@ -133,30 +132,34 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Skill 1 -->
           <div class="animate_top glass-card p-8 sg hover-lift group">
-            <div class="ce ed sg logo-gradient-bg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110">
+            <div class="ce ed sg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110"
+              style="background:#E63946;">
               IT</div>
-            <h4 class="font-bold mb-2">Technical Depth</h4>
+            <h4 class="font-bold mb-2" style="color:#E63946;">Technical Depth</h4>
             <p class="text-xs opacity-70">Deep IT skills and secure infrastructure for core systems.</p>
           </div>
           <!-- Skill 2 -->
           <div class="animate_top glass-card p-8 sg hover-lift group">
-            <div class="ce ed sg logo-gradient-bg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110">
+            <div class="ce ed sg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110"
+              style="background:#20CA66;">
               BNK</div>
-            <h4 class="font-bold mb-2">Banking DNA</h4>
+            <h4 class="font-bold mb-2" style="color:#20CA66;">Banking DNA</h4>
             <p class="text-xs opacity-70">Years of hands-on experience in MFI/RCI operations.</p>
           </div>
           <!-- Skill 3 -->
           <div class="animate_top glass-card p-8 sg hover-lift group">
-            <div class="ce ed sg logo-gradient-bg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110">
+            <div class="ce ed sg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110"
+              style="background:#4E6BFF;">
               ACC</div>
-            <h4 class="font-bold mb-2">CIFRS SME</h4>
+            <h4 class="font-bold mb-2" style="color:#4E6BFF;">CIFRS SME</h4>
             <p class="text-xs opacity-70">Advanced accounting aligned with international standards.</p>
           </div>
           <!-- Skill 4 -->
           <div class="animate_top glass-card p-8 sg hover-lift group">
-            <div class="ce ed sg logo-gradient-bg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110">
+            <div class="ce ed sg tc wf xf lk mb-6 gk vk transition duration-300 group-hover:scale-110"
+              style="background:#FFBD3F;">
               CBC</div>
-            <h4 class="font-bold mb-2">Regulatory</h4>
+            <h4 class="font-bold mb-2" style="color:#FFBD3F;">Regulatory</h4>
             <p class="text-xs opacity-70">In-depth expertise in CBC and NBC reporting templates.</p>
           </div>
         </div>

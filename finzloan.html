@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,18 +9,41 @@
   <link rel="icon" href="favicon.ico">
   <link href="style.css" rel="stylesheet">
   <link href="responsive.css" rel="stylesheet">
+  <link href="tailwind-patch.css" rel="stylesheet">
   <style>
-    .logo-gradient-text { background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
-    .logo-gradient-bg { background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%); }
-    .glass-card { backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
-    .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+    .logo-gradient-text {
+      background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .logo-gradient-bg {
+      background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%);
+    }
+
+    .glass-card {
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
   </style>
 </head>
+
 <body x-data="{ page: 'finzloan', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
   x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
   :class="{'b eh': darkMode === true}">
-  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }" @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
+  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+    @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
     <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
       <div class="vd to/4 tc wf yf">
         <a href="index.html" class="tc wf gap-2">
@@ -43,7 +67,7 @@
         </button>
         <!-- Hamburger Toggle BTN -->
       </div>
-      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+      <div id="premium-mobile-nav" class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
         <nav>
           <ul class="tc _o sf yo cg ep">
             <li><a href="index.html" class="xl">Ecosystem</a></li>
@@ -53,71 +77,179 @@
             <li><a href="about.html" class="xl">About Us</a></li>
           </ul>
         </nav>
-        <div class="tc wf ig pb no">
-          <a href="demo.html" class="ek pk xl lg:bg-blue-600 lg:text-white lg:px-6 lg:py-2.5 lg:rounded-full lg:ml-4 shadow-lg font-semibold">Request Demo</a>
+        <div class="tc wf ig pb no" style="display:flex;align-items:center;">
+          <a href="demo.html" class="demo-btn-nav">Request Demo</a>
         </div>
       </div>
     </div>
   </header>
   <main>
     <!-- Hero Section -->
-    <section class="ji gp uq pg relative overflow-hidden">
-      <!-- Decor Shapes -->
-      <img src="images/shape-14.svg" alt="Shape" class="of h y z/2 opacity-20" />
-      <div class="bb ze ki xn wq relative z-1">
+    <section class="ji gp uq pg relative overflow-hidden bg-white dark:bg-black">
+      <!-- Ambient glow -->
+      <div
+        style="position:absolute;top:-20%;right:-5%;width:55%;height:120%;background:radial-gradient(ellipse at center, rgba(32,202,102,0.07) 0%, transparent 70%);pointer-events:none;z-index:0;">
+      </div>
+
+      <div class="bb ze ki xn wq" style="position:relative;z-index:1;">
         <div class="tc wf gg qq items-center">
+
+          <!-- LEFT: Text -->
           <div class="animate_left jn/2">
-            <h4 class="ek yj mk gb inline-block px-4 py-1.5 rg bg-emerald-50 dark:bg-emerald-900/30 gk mb-4 uj uppercase tracking-wider text-emerald-600">Borrower Empowerment</h4>
-            <h1 class="fk vj zp pr logo-gradient-text wm qb text-5xl md:text-6xl mb-6">FinzLoan App</h1>
-            <p class="uo mb-8 text-lg lg:pr-20">A frictionless, secure mobile experience for borrowers. Manage your finances, track balances, and apply for loans in seconds.</p>
-            <div class="tc sf gap-4">
-               <div class="tc wf gap-3">
-                  <div class="ne id rg logo-gradient-bg tc wf xf lk">
-                     <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                  </div>
-                  <span class="ek">Instant Digital Onboarding</span>
-               </div>
-               <div class="tc wf gap-3">
-                  <div class="ne id rg logo-gradient-bg tc wf xf lk">
-                     <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                  </div>
-                  <span class="ek">Frictionless Repayments</span>
-               </div>
+            <!-- Badge -->
+            <!-- <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 text-sm font-semibold uppercase tracking-wide" style="background:rgba(32,202,102,0.1);color:#20CA66;border:1px solid rgba(32,202,102,0.25);">
+              <span style="width:6px;height:6px;border-radius:50%;background:#20CA66;display:inline-block;animation:pulse 2s infinite;"></span>
+              Borrower Empowerment
+            </div> -->
+
+            <h1 class="fk vj zp pr logo-gradient-text wm qb mb-6"
+              style="font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.15;">
+              Banking at Your<br>Fingertips.
+            </h1>
+
+            <p class="uo mb-8" style="font-size:1.1rem;line-height:1.8;max-width:480px;">
+              A frictionless, secure mobile experience for borrowers. Manage finances, track your balance, and apply for
+              loans in seconds — anytime, anywhere.
+            </p>
+
+            <!-- Feature Pills -->
+            <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2.5rem;">
+              <span
+                style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border-radius:999px;font-size:0.85rem;font-weight:600;background:rgba(32,202,102,0.1);color:#20CA66;border:1px solid rgba(32,202,102,0.2);">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+                Instant Digital Onboarding
+              </span>
+              <span
+                style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border-radius:999px;font-size:0.85rem;font-weight:600;background:rgba(78,107,255,0.1);color:#4E6BFF;border:1px solid rgba(78,107,255,0.2);">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+                Frictionless Repayments
+              </span>
+              <span
+                style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border-radius:999px;font-size:0.85rem;font-weight:600;background:rgba(255,189,63,0.1);color:#FFBD3F;border:1px solid rgba(255,189,63,0.2);">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+                NBC Compliant
+              </span>
+            </div>
+
+            <!-- Stats Row -->
+            <div style="display:flex;gap:2rem;padding:1.5rem 0;border-top:1px solid rgba(128,128,128,0.15);">
+              <div>
+                <p class="gk" style="font-size:1.75rem;color:#20CA66;margin-bottom:2px;">3s</p>
+                <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Loan Apply</p>
+              </div>
+              <div style="width:1px;background:rgba(128,128,128,0.15);"></div>
+              <div>
+                <p class="gk" style="font-size:1.75rem;color:#4E6BFF;margin-bottom:2px;">100%</p>
+                <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Paperless</p>
+              </div>
+              <div style="width:1px;background:rgba(128,128,128,0.15);"></div>
+              <div>
+                <p class="gk" style="font-size:1.75rem;color:#FFBD3F;margin-bottom:2px;">24/7</p>
+                <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Available</p>
+              </div>
             </div>
           </div>
-          <div class="animate_right jn/2 relative group">
-             <div class="h -inset-2 logo-gradient-bg sg al sk group-hover:rk transition duration-1000 blur-2xl"></div>
-             <img src="images/finzloan_device_only.png" alt="FinzLoan" class="vd sg vk i hover-lift" />
+
+          <!-- RIGHT: Device Mockup -->
+          <div class="animate_right jn/2 relative group" style="overflow:visible;">
+            <div
+              style="position:absolute;inset:-50px;background:radial-gradient(ellipse at center, rgba(32,202,102,0.2) 0%, rgba(78,107,255,0.1) 50%, transparent 70%);filter:blur(40px);pointer-events:none;z-index:0;">
+            </div>
+            <img src="images/finzloan_device_only.png" alt="FinzLoan App" class="hover-lift"
+              style="position:relative;z-index:1;max-width:100%;filter:drop-shadow(0 40px 80px rgba(32,202,102,0.25)) drop-shadow(0 10px 20px rgba(0,0,0,0.2));transition:transform 0.4s;" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Features Grid -->
-    <section class="ji gp uq pg">
+    <section class="ji gp uq pg bg-gray-50 dark:bg-gray-900/50">
       <div class="bb ze ki xn wq">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="animate_top text-center mb-16">
+          <h2 class="fk vj zp pr kk wm qb text-4xl mb-4">Everything a Borrower Needs</h2>
+          <p class="uo mx-auto max-w-2xl opacity-70">Powerful features packed into a clean, intuitive mobile experience.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Feature 1 -->
-          <div class="animate_left glass-card p-10 sg hover-lift tc sf gap-8 group">
-             <div class="ne id sg logo-gradient-bg tc wf xf lk vk flex-none transition duration-300 group-hover:scale-110">
-                <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-             </div>
-             <div>
-                <h4 class="text-xl gk mb-2">Secure Authentication</h4>
-                <p class="opacity-70 text-sm leading-relaxed">Biometric login and multi-factor authentication keep your data private.</p>
-             </div>
+          <div class="animate_top glass-card p-8 sg hover-lift group text-center">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 transition duration-300 group-hover:scale-110" style="background:#E63946;">
+              <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2" style="color:#E63946;">Secure Auth</h4>
+            <p class="text-sm opacity-60 leading-relaxed">Biometric login and multi-factor authentication keep your data private.</p>
           </div>
 
           <!-- Feature 2 -->
-          <div class="animate_right glass-card p-10 sg hover-lift tc sf gap-8 group">
-             <div class="ne id sg logo-gradient-bg tc wf xf lk vk flex-none transition duration-300 group-hover:scale-110">
-                <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-             </div>
-             <div>
-                <h4 class="text-xl gk mb-2">Live Application Tracking</h4>
-                <p class="opacity-70 text-sm leading-relaxed">Real-time status updates on your loan applications in seconds.</p>
-             </div>
+          <div class="animate_top glass-card p-8 sg hover-lift group text-center">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 transition duration-300 group-hover:scale-110" style="background:#20CA66;">
+              <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2" style="color:#20CA66;">Live Tracking</h4>
+            <p class="text-sm opacity-60 leading-relaxed">Real-time status updates on your loan applications in seconds.</p>
           </div>
+
+          <!-- Feature 3 -->
+          <div class="animate_top glass-card p-8 sg hover-lift group text-center">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 transition duration-300 group-hover:scale-110" style="background:#4E6BFF;">
+              <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2" style="color:#4E6BFF;">Easy Repayment</h4>
+            <p class="text-sm opacity-60 leading-relaxed">Flexible payment schedules with automated reminders and digital receipts.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="animate_top glass-card p-8 sg hover-lift group text-center">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 transition duration-300 group-hover:scale-110" style="background:#FFBD3F;">
+              <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </div>
+            <h4 class="font-bold text-lg mb-2" style="color:#FFBD3F;">Smart Alerts</h4>
+            <p class="text-sm opacity-60 leading-relaxed">Push notifications for due dates, approvals, and account activity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="ji gp uq pg relative overflow-hidden"
+      style="background:linear-gradient(135deg,#0d1117 0%,#111827 100%);">
+      <div
+        style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(32,202,102,0.08) 0%, transparent 70%);pointer-events:none;">
+      </div>
+      <div class="bb ze ki xn wq text-center" style="position:relative;z-index:1;">
+        <h2 class="fk vj zp pr logo-gradient-text wm qb text-4xl mb-4">Ready to Simplify Your Finances?</h2>
+        <p class="uo mb-10 mx-auto max-w-xl" style="opacity:0.7;">Join thousands of borrowers who trust FinzLoan to
+          manage their credit, track repayments, and grow their financial well-being.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="demo.html"
+            style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2.5rem;border-radius:999px;font-weight:700;color:#fff;background:linear-gradient(135deg,#20CA66,#4E6BFF);box-shadow:0 8px 30px rgba(32,202,102,0.3);text-decoration:none;transition:transform 0.2s;"
+            onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+            Request a Demo
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+            </svg>
+          </a>
+          <a href="finzcore.html"
+            style="display:inline-flex;align-items:center;padding:0.9rem 2.5rem;border-radius:999px;font-weight:600;border:1.5px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);text-decoration:none;transition:border-color 0.2s;"
+            onmouseover="this.style.borderColor='#20CA66'" onmouseout="this.style.borderColor='rgba(255,255,255,0.2)'">
+            View FinzCore 360 →
+          </a>
         </div>
       </div>
     </section>
@@ -177,10 +309,12 @@
   <button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
     @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'uc' : scrollTop }">
     <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+      <path
+        d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
     </svg>
   </button>
 
   <script defer src="bundle.js"></script>
 </body>
+
 </html>
