@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Demo | FinzTrust</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="style.css" rel="stylesheet">
+  <link href="responsive.css" rel="stylesheet">
+</head>
+<body x-data="{ page: 'demo', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+  x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+  :class="{'b eh': darkMode === true}">
+  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }" @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
+    <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+      <div class="vd to/4 tc wf yf">
+        <a href="index.html" class="tc wf gap-2">
+          <img class="om h-7" src="images/logo-light.svg" alt="Logo Light" />
+          <img class="xc nm h-8" src="images/logo-dark.svg" alt="Logo Dark" />
+          <span class="xj gk oc">FinzTrust</span>
+        </a>
+        <!-- Hamburger Toggle BTN -->
+        <button class="po rc" @click="navigationOpen = !navigationOpen">
+          <span class="rc i pf re pd">
+            <span class="du-block h q vd yc">
+              <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+            </span>
+            <span class="du-block h q vd yc lf">
+              <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+              <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+            </span>
+          </span>
+        </button>
+        <!-- Hamburger Toggle BTN -->
+      </div>
+      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+        <nav>
+          <ul class="tc _o sf yo cg ep">
+            <li><a href="index.html" class="xl">Ecosystem</a></li>
+            <li><a href="finzcore.html" class="xl">FinzCore 360</a></li>
+            <li><a href="rci-app.html" class="xl">RCI App</a></li>
+            <li><a href="finzloan.html" class="xl">FinzLoan</a></li>
+            <li><a href="about.html" class="xl">About Us</a></li>
+          </ul>
+        </nav>
+        <div class="tc wf ig pb no">
+          <a href="demo.html" class="ek pk xl lg:bg-blue-600 lg:text-white lg:px-6 lg:py-2.5 lg:rounded-full lg:ml-4 shadow-lg font-semibold">Request Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="ji gp uq 2xl:ud-py-35 pg">
+      <div class="bb ze ki xn wq">
+        <div class="tc wf gg qq items-center">
+          <div class="animate_left jn/2">
+            <h4 class="ek yj mk gb">The Demo Engine</h4>
+            <h1 class="fk vj zp pr kk wm qb">Request a Personalized Demo</h1>
+            <p class="uo">Capture the future of your financial institution. Our consultants will listen to your challenges and provide complete CBS support.</p>
+          </div>
+          <div class="animate_right jn/2">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+              <form action="#!" class="demo-form space-y-4">
+                <div>
+                  <label class="block text-sm font-bold mb-1">Your Name</label>
+                  <input type="text" class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500" required />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold mb-1">Institution Name</label>
+                  <input type="text" class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500" required />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-bold mb-1">Your Role</label>
+                    <select class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500">
+                      <option>CEO</option>
+                      <option>Operations Manager</option>
+                      <option>IT Director</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-bold mb-1">Product Interest</label>
+                    <select class="w-full p-3 rounded-xl border border-gray-200 dark:bg-gray-700 dark:border-gray-600 focus:outline-blue-500">
+                      <option>FinzCore 360</option>
+                      <option>RCI App</option>
+                      <option>FinzLoan App</option>
+                      <option>Complete Ecosystem</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <button type="submit" class="w-full py-4 rounded-xl bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition shadow-lg mt-4">Submit Demo Request</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- ===== Footer Start ===== -->
+  <footer>
+    <div class="bb ze ki xn 2xl:ud-px-0">
+      <div class="ji gp text-center md:text-left">
+        <div class="tc uf ap gg fp">
+          <div class="animate_top zd/2 to/4">
+            <a href="index.html" class="flex items-center gap-2 mb-4 justify-center md:justify-start">
+              <img src="images/logo-light.svg" alt="Logo" class="om h-8" />
+              <img src="images/logo-dark.svg" alt="Logo" class="xc nm h-8" />
+              <span class="text-xl font-bold">FinzTrust</span>
+            </a>
+            <p class="lc fb">Your trusted partner in providing innovative core banking systems to MFIs and RCIs.</p>
+          </div>
+
+          <div class="vd ro tc sf rn un gg vn text-center md:text-left">
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="index.html" class="sc xl vb">Ecosystem</a></li>
+                <li><a href="about.html" class="sc xl vb">About Us</a></li>
+                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Products</h4>
+              <ul class="space-y-2">
+                <li><a href="finzcore.html" class="sc xl vb">FinzCore 360</a></li>
+                <li><a href="rci-app.html" class="sc xl vb">RCI Mobile App</a></li>
+                <li><a href="finzloan.html" class="sc xl vb">FinzLoan App</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Get Started</h4>
+              <ul class="space-y-2">
+                <li><a href="demo.html" class="sc xl vb">Contact Us</a></li>
+                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj border-t border-gray-100 dark:border-gray-800">
+        <div class="animate_top">
+          <p>&copy; 2026 FinzTrust. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+    @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'uc' : scrollTop }">
+    <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+    </svg>
+  </button>
+
+  <script defer src="bundle.js"></script>
+</body>
+</html>

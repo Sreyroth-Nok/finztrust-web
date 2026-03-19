@@ -1,0 +1,10 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top Triangle (Blue) -->
+  <path d="M20 5 L12 18.8 L28 18.8 Z" fill="#4E90FE"/>
+  <!-- Middle Inverted Triangle (Green) -->
+  <path d="M20 32.6 L12 18.8 L28 18.8 Z" fill="#34A853"/>
+  <!-- Bottom Left Triangle (Yellow) -->
+  <path d="M12 18.8 L4 32.6 L20 32.6 Z" fill="#FBBC05"/>
+  <!-- Bottom Right Triangle (Red) -->
+  <path d="M28 18.8 L36 32.6 L20 32.6 Z" fill="#EA4335"/>
+</svg>

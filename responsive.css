@@ -1,0 +1,314 @@
+/* ============================================================
+   FinzTrust – Responsive / Mobile-First Overrides
+   Applies to: index, finzcore, rci-app, finzloan, about, demo
+   ============================================================ */
+
+/* --- Base mobile resets ------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Prevent horizontal overflow on every page */
+html, body { overflow-x: hidden; }
+
+/* --- Base mobile resets ------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Prevent horizontal overflow on every page */
+html, body { overflow-x: hidden; }
+
+/* ============================================================
+   NAVBAR RESPONSIVE STYLES
+   ============================================================ */
+
+/* Hamburger button: hidden on desktop (po = display:none at lg), shown on mobile */
+@media (max-width: 1023px) {
+  /* Force the hamburger button to be visible below lg */
+  .po.rc {
+    display: block !important;
+    margin-left: auto;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    z-index: 9999;
+  }
+
+  /* Logo area: flex row, logo left, burger right */
+  .vd.to\/4.tc.wf.yf {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  /* Nav drawer: hidden by default on mobile */
+  .vd.wo\/4.sd.qo.f.ho.oo.wf.yf {
+    position: fixed !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 80% !important;
+    max-width: 320px !important;
+    height: 100vh !important;
+    background: #0f172a !important;
+    z-index: 9998 !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 5rem 2rem 2rem 2rem !important;
+    gap: 2rem !important;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.4) !important;
+    overflow-y: auto !important;
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  /* When navigationOpen is true, Alpine adds 'd' class which triggers the open state */
+  /* The 'd' class in this framework means 'block'/'open' for mobile nav */
+  .vd.wo\/4.sd.qo.f.ho.oo.wf.yf.d {
+    right: 0 !important;
+  }
+
+  /* Nav links in mobile drawer: stack vertically with larger tap targets */
+  .vd.wo\/4 nav ul {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    width: 100% !important;
+  }
+
+  .vd.wo\/4 nav ul li a {
+    display: block !important;
+    padding: 0.875rem 1rem !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    border-radius: 0.75rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .vd.wo\/4 nav ul li a:hover {
+    background: rgba(255,255,255,0.08) !important;
+  }
+
+  /* Request Demo button in mobile nav */
+  .vd.wo\/4 .tc.wf.ig.pb.no {
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .vd.wo\/4 .tc.wf.ig.pb.no a {
+    display: block !important;
+    padding: 0.875rem 1.5rem !important;
+    background: linear-gradient(135deg, #E63946, #4E6BFF) !important;
+    color: #fff !important;
+    border-radius: 0.75rem !important;
+    text-align: center !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    box-shadow: 0 4px 20px rgba(78,107,255,0.4) !important;
+  }
+
+  /* Overlay backdrop when nav is open */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9997;
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-overlay.active { display: block; }
+
+  /* Header container: full width single row on mobile */
+  .bb.ze.ki.xn.oo.wf.yf.i {
+    width: 100% !important;
+  }
+}
+
+/* Desktop: reset everything back to normal */
+@media (min-width: 1024px) {
+  .vd.wo\/4.sd.qo.f.ho.oo.wf.yf {
+    position: static !important;
+    right: auto !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    flex-direction: row !important;
+    overflow: visible !important;
+  }
+
+  /* Prevent hamburger from ever showing on desktop */
+  .po.rc {
+    display: none !important;
+  }
+}
+
+/* --- Navigation -------------------------------------------- */
+/* Hamburger helper – ensure mobile nav stacks */
+@media (max-width: 1023px) {
+  /* The nav drawer sits fixed; make it scroll-proof */
+  header .vd.wo\/4 {
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+}
+
+/* --- Hero Two-Column Layouts (About, FinzCore, RCI, FinzLoan) ---- */
+/* On mobile the two halves must stack vertically */
+@media (max-width: 767px) {
+  /* Two-column hero flex row → column */
+  .tc.wf.gg.qq {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Each half takes full width on mobile */
+  .jn\/2 {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  /* Hero heading sizes */
+  .fk.vj { font-size: 2rem !important; line-height: 1.2 !important; }
+  h1.logo-gradient-text { font-size: 2.25rem !important; line-height: 1.2 !important; }
+
+  /* Stats row → wrap */
+  .flex.gap-8 { flex-wrap: wrap; gap: 1.5rem !important; }
+
+  /* Trust / Stats row inside hero */
+  .tc.sf.gap-12 { flex-wrap: wrap !important; gap: 2rem !important; justify-content: center !important; }
+
+  /* Mockup images in hero */
+  .animate_right.jn\/2 img,
+  .jn\/2 img.vd { width: 100% !important; max-width: 420px; margin: 0 auto; }
+
+  /* Checkmark feature list → stack */
+  .tc.sf.gap-4 { flex-direction: column !important; align-items: flex-start !important; }
+
+  /* Section heading */
+  h2.fk.vj { font-size: 1.75rem !important; line-height: 1.3 !important; }
+
+  /* Capabilities / Feature grid: force 1 column */
+  .grid.grid-cols-1.md\:grid-cols-3,
+  .grid.grid-cols-1.md\:grid-cols-2 { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
+
+  /* Glass cards horizontal → vertical on tiny screens */
+  .glass-card.tc.sf { flex-direction: column !important; align-items: flex-start !important; }
+
+  /* Timeline steps */
+  .timeline-stem { display: none !important; }
+
+  /* Footer columns */
+  .tc.uf.ap.gg.fp { flex-direction: column !important; gap: 2rem !important; }
+  .vd.ro.tc.sf.rn.un.gg.vn { flex-direction: column !important; gap: 1.5rem !important; }
+
+  /* Gallery / Milestone grid */
+  .grid.grid-cols-1.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+
+  /* Padding reduction on small screens */
+  section.ji.gp { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .bb.ze.ki.xn.wq { padding-left: 1rem !important; padding-right: 1rem !important; }
+
+  /* Demo form / request section */
+  .tc.wf.gg.rn { flex-direction: column !important; }
+}
+
+/* --- Small tablet (768px – 1023px) ------------------------- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Hero heading size */
+  h1.logo-gradient-text { font-size: 2.75rem !important; }
+  .fk.vj { font-size: 2.25rem !important; }
+
+  /* Ensure 2-col hero has breathing room */
+  .tc.wf.gg.qq { gap: 3rem !important; }
+
+  /* 3-col grids → 2-col */
+  .grid.grid-cols-1.md\:grid-cols-3 { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* 4-col grids → 2-col */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Timeline stem position adjustment */
+  .timeline-stem { left: 35px; }
+
+  /* Section padding */
+  section.ji.gp { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+}
+
+/* --- Large screens (1024px+) ------------------------------- */
+@media (min-width: 1024px) {
+  /* Restore hover effects (disabled on touch devices above) */
+  .hover-lift:hover { transform: translateY(-10px); }
+
+  /* Ensure hero columns are truly 50/50 */
+  .jn\/2 { width: 50%; }
+
+  /* Glass card side-by-side is fine */
+  .glass-card.tc.sf { flex-direction: row; }
+}
+
+/* --- Mockup images universal fix -------------------------- */
+/* Prevent any mockup from breaking out of its container */
+.vd.sg.vk,
+.i.sg.vk { max-width: 100%; height: auto !important; }
+
+/* --- Text alignment centre on mobile ---------------------- */
+@media (max-width: 767px) {
+  .animate_left.jn\/2 { text-align: center; }
+  .animate_left.jn\/2 .flex { justify-content: center; }
+  .animate_left.jn\/2 .tc.sf { align-items: center; }
+}
+
+/* --- About page – skill/advantage cards -------------------- */
+@media (max-width: 479px) {
+  /* Tiny phones: 1-column advantage grid */
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: 1fr !important; }
+}
+
+/* --- Index page hero --------------------------------------- */
+@media (max-width: 767px) {
+  /* The absolute-positioned hero image block */
+  #home .xc.zd\/2 {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 2rem;
+  }
+  #home .xc.zd\/2 img { position: relative !important; width: 100% !important; height: auto !important; }
+  /* Hero content occupies full width */
+  #home .jn\/2 { width: 100% !important; }
+  /* Stack hero row */
+  #home .tc._o { flex-direction: column !important; }
+}
+
+/* --- Demo page form ---------------------------------------- */
+@media (max-width: 767px) {
+  .demo-section .grid { grid-template-columns: 1fr !important; }
+  form input, form select, form textarea { width: 100% !important; }
+}
+
+/* --- Footer logo + text ------------------------------------ */
+@media (max-width: 767px) {
+  footer { text-align: center !important; }
+  footer a.tc.wf { justify-content: center !important; }
+  footer ul { text-align: center; }
+}
+
+/* --- Prevent glow divs from causing overflow --------------- */
+.h.-inset-1,
+.h.-inset-2,
+.h.-inset-3,
+.h.-inset-4 { pointer-events: none; overflow: hidden; }
+
+/* Blur glow containment */
+.relative { overflow: hidden; }
+/* But not sections that need visible overflow for animations */
+section.relative { overflow: visible; }
+.relative.group { overflow: hidden; }

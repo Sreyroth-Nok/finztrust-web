@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinzTrust - Modern Core Banking Ecosystem</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="style.css" rel="stylesheet">
+  <link href="responsive.css" rel="stylesheet">
+  <style>
+    .logo-gradient-text {
+      background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .logo-gradient-bg {
+      background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%);
+    }
+  </style>
+</head>
+
+<body x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+  x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+  :class="{'b eh': darkMode === true}">
+  <!-- ===== Header Start ===== -->
+  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+    @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
+    <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+      <div class="vd to/4 tc wf yf">
+        <a href="index.html" class="flex items-center gap-2">
+          <img class="om h-7" src="images/logo-light.svg" alt="Logo Light" />
+          <img class="xc nm h-8" src="images/logo-dark.svg" alt="Logo Dark" />
+          <span class="xj gk oc">FinzTrust</span>
+        </a>
+
+        <!-- Hamburger Toggle BTN -->
+        <button class="po rc" @click="navigationOpen = !navigationOpen">
+          <span class="rc i pf re pd">
+            <span class="du-block h q vd yc">
+              <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+            </span>
+            <span class="du-block h q vd yc lf">
+              <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+              <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+            </span>
+          </span>
+        </button>
+        <!-- Hamburger Toggle BTN -->
+      </div>
+
+      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+        <nav>
+          <ul class="tc _o sf yo cg ep">
+            <li><a href="index.html" class="xl mk">Ecosystem</a></li>
+            <li><a href="finzcore.html" class="xl">FinzCore 360</a></li>
+            <li><a href="rci-app.html" class="xl">RCI App</a></li>
+            <li><a href="finzloan.html" class="xl">FinzLoan</a></li>
+            <li><a href="about.html" class="xl">About Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="tc wf ig pb no">
+          <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
+            <label class="rc ab i">
+              <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="pf vd yc uk h r za ab" />
+              <!-- Icon Sun -->
+              <svg :class="{ 'wn' : page === 'home', 'xh' : page === 'home' && stickyMenu }" class="th om" width="25"
+                height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z"
+                  fill="" />
+              </svg>
+              <!-- Icon Sun -->
+              <img class="xc nm" src="images/icon-moon.svg" alt="Moon" />
+            </label>
+          </div>
+
+          <a href="demo.html"
+            class="ek pk xl lg:bg-blue-600 lg:text-white lg:px-6 lg:py-2.5 lg:rounded-full lg:ml-4 shadow-lg font-semibold hover:bg-blue-700 transition">Request
+            Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Header End ===== -->
+
+  <main>
+    <!-- ===== Hero Start ===== -->
+    <section id="home" class="gj do ir hj sp jr i pg">
+      <!-- Hero Images -->
+      <div class="xc fn zd/2 2xl:ud-w-187.5 bd 2xl:ud-h-171.5 h q r">
+        <img src="images/shape-01.svg" alt="shape" class="xc 2xl:ud-block h t -ud-left-[10%] ua" />
+        <img src="images/shape-02.svg" alt="shape" class="xc 2xl:ud-block h u p va" />
+        <img src="images/shape-03.svg" alt="shape" class="xc 2xl:ud-block h v w va" />
+        <img src="images/shape-04.svg" alt="shape" class="h q r" />
+        <!-- Green tint overlay -->
+        <div
+          style="position:absolute;inset:0;background:rgba(31,154,82,0.18);border-radius:inherit;pointer-events:none;z-index:2;mix-blend-mode:multiply;">
+        </div>
+        <div class="h q r i group transition duration-700 hover:scale-105">
+          <div class="h -inset-4 logo-gradient-bg sg al sk group-hover:rk transition duration-1000 blur-2xl"></div>
+          <img src="images/finz_ecosystem.png" alt="FinzTrust Ecosystem" class="h q r ua vd object-contain"
+            style="mix-blend-mode: multiply; filter: drop-shadow(0 24px 48px rgba(31,154,82,0.3));" />
+        </div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="bb ze ki xn 2xl:ud-px-0">
+        <div class="tc _o">
+          <div class="animate_left jn/2">
+            <h1 class="fk vj zp or logo-gradient-text wm wb">Unified Core Banking Ecosystem.</h1>
+            <p class="fq">
+              The primary digital storefront and lead-generation engine for MFIs and RCIs. We modernize business
+              environments through expert split of IT, accounting, and CBC integration.
+            </p>
+
+            <div class="tc tf yo zf mb">
+              <a href="#demo" class="ek jk lk gh gi hi rg ml il vc _d _l">Request a Demo</a>
+
+              <span class="tc sf">
+                <a href="#products" class="inline-block ek xj kk wm">Explore Products</a>
+                <span class="inline-block">FinzCore 360, RCI App, FinzLoan</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Hero End ===== -->
+
+    <!-- ===== Small Features Start ===== -->
+    <section id="features">
+      <div class="bb ze ki yn 2xl:ud-px-12.5">
+        <div class="tc uf zo xf ap zf bp mq">
+          <!-- Small Features Item -->
+          <div class="animate_top kn to/3 tc cg oq">
+            <div class="tc wf xf cf ae cd rg" style="background-color: #E63946;">
+              <img src="images/icon-01.svg" alt="Icon" />
+            </div>
+            <div>
+              <h4 class="ek yj go kk wm xb">Operational Efficiency</h4>
+              <p>Reducing workload and minimizing errors with streamlined processes.</p>
+            </div>
+          </div>
+
+          <!-- Small Features Item -->
+          <div class="animate_top kn to/3 tc cg oq">
+            <div class="tc wf xf cf ae cd rg nh" style="background-color: #1f9a52;">
+              <img src="images/icon-02.svg" alt="Icon" />
+            </div>
+            <div>
+              <h4 class="ek yj go kk wm xb">Strict Compliance</h4>
+              <p>NBC compliance, CIFRS-SME standards, and CBC extraction ready.</p>
+            </div>
+          </div>
+
+          <!-- Small Features Item -->
+          <div class="animate_top kn to/3 tc cg oq">
+            <div class="tc wf xf cf ae cd rg oh" style="background-color: #f0cb11;">
+              <img src="images/icon-03.svg" alt="Icon" />
+            </div>
+            <div>
+              <h4 class="ek yj go kk wm xb">Full Support</h4>
+              <p>ContinuousCBS support and process improvement consulting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Small Features End ===== -->
+
+    <!-- ===== About Start ===== -->
+    <section id="about" class="ji gp uq 2xl:ud-py-35 pg">
+      <div class="bb ze ki xn wq">
+        <div class="tc wf gg qq">
+          <!-- About Images -->
+          <div class="animate_left xc gn gg jn/2 i">
+            <div>
+              <img src="images/shape-05.svg" alt="Shape" class="h -ud-left-5 x" />
+              <img src="images/award_ceremony_finztrust.jpg" alt="Award Ceremony" class="ib sg vk" />
+              <img src="images/team_group_cbc.jpg" alt="FinzTrust Team at CBC" class="sg vk" />
+            </div>
+            <div>
+              <img src="images/shape-06.svg" alt="Shape" />
+              <img src="images/training_session_cbc.jpg" alt="Training Session" class="ob gb sg vk" />
+              <img src="images/shape-07.svg" alt="Shape" class="bb" />
+            </div>
+          </div>
+
+          <!-- About Content -->
+          <div class="animate_right jn/2">
+            <h4 class="ek yj mk gb">Our Journey</h4>
+            <h2 class="fk vj zp pr kk wm qb">Trusted partner since 2012.</h2>
+            <p class="uo">From a freelance credit system provider to a formal legal entity in 2020, our mission remains:
+              providing innovative core banking systems to MFIs and RCIs.</p>
+
+            <a href="#demo" class="vc wf hg mb">
+              <span class="tc wf xf be dd rg i logo-gradient-bg ua">
+                <span class="nf h vc yc vd rg logo-gradient-bg qk -ud-z-1"></span>
+                <img src="images/icon-play.svg" alt="Play" />
+              </span>
+              <span class="kk">SEE THE ECOSYSTEM IN ACTION</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== About End ===== -->
+
+    <!-- ===== Products Section (Customized from Team) ===== -->
+    <section id="products" class="i pg ji gp uq">
+      <!-- Bg Shapes -->
+      <span class="rc h s r vd fd/5 fh rm"></span>
+      <img src="images/shape-08.svg" alt="Shape Bg" class="h q r" />
+      <img src="images/shape-09.svg" alt="Shape" class="of h y z/2" />
+      <img src="images/shape-10.svg" alt="Shape" class="h _ aa" />
+      <img src="images/shape-11.svg" alt="Shape" class="of h m ba" />
+
+      <!-- Section Title Start -->
+      <div
+        x-data="{ sectionTitle: `Our Comprehensive Ecosystem`, sectionTitleText: `Discover the blend of IT expertise, banking experience, and accounting depth that powers FinzTrust.`}">
+        <div class="animate_top bb ze rj ki xn vq">
+          <h2 x-text="sectionTitle" class="fk vj pr logo-gradient-text wm on/5 gq/2 bb _b">
+          </h2>
+          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+        </div>
+      </div>
+      <!-- Section Title End -->
+
+      <div class="bb ze i va ki xn xq jb jo">
+        <div class="wc qf pn xo gg cp">
+          <!-- Product Item 1: FinzCore 360 -->
+          <div class="animate_top rj">
+            <div class="c i pg z-1">
+              <img class="vd rounded-xl" src="images/finzcore_360_mockup_clean.png" alt="FinzCore 360" />
+            </div>
+            <h4 class="yj go kk wm ob zb">FinzCore 360</h4>
+            <p>Core banking backend with full NBC compliance and detailed reporting.</p>
+          </div>
+
+          <!-- Product Item 2: RCI Mobile App -->
+          <div class="animate_top rj">
+            <div class="c i pg z-1">
+              <img class="vd rounded-xl shadow-lg" src="images/rci_mobile_app_mockup_1773850696458.png"
+                alt="RCI Mobile App" />
+            </div>
+            <h4 class="yj go kk wm ob zb">RCI Mobile App</h4>
+            <p>Field mobility for agents with instant sync and offline capabilities.</p>
+          </div>
+
+          <!-- Product Item 3: FinzLoan -->
+          <div class="animate_top rj">
+            <div class="c i pg z-1">
+              <img class="vd rounded-xl shadow-lg" src="images/finzloan_lifestyle_1773850742598.png"
+                alt="FinzLoan App" />
+            </div>
+            <h4 class="yj go kk wm ob zb">FinzLoan (B2C)</h4>
+            <p>Consumer empowerment with secure, frictionless loan management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Products Section End ===== -->
+
+    <!-- ===== Services Start ===== -->
+    <section class="lj tp kr">
+      <!-- Section Title Start -->
+      <div
+        x-data="{ sectionTitle: `The Team Up Advantage`, sectionTitleText: `Why MFIs and RCIs trust us to modernize their business environments.`}">
+        <div class="animate_top bb ze rj ki xn vq">
+          <h2 x-text="sectionTitle" class="fk vj pr logo-gradient-text wm on/5 gq/2 bb _b">
+          </h2>
+          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+        </div>
+      </div>
+      <!-- Section Title End -->
+
+      <div class="bb ze ki xn yq mb en">
+        <div class="wc qf pn xo ng">
+          <!-- Service Item -->
+          <div class="animate_top sg oi pi zq ml il am cn _m">
+            <img src="images/icon-04.svg" alt="Icon" />
+            <h4 class="ek zj kk wm nb _b">IT & Infrastructure</h4>
+            <p>Advanced technology and secure infrastructure for core systems.</p>
+          </div>
+
+          <!-- Service Item -->
+          <div class="animate_top sg oi pi zq ml il am cn _m">
+            <img src="images/icon-05.svg" alt="Icon" />
+            <h4 class="ek zj kk wm nb _b">MFI Experience</h4>
+            <p>Deep domain knowledge in Microfinance and Rural Credit.</p>
+          </div>
+
+          <!-- Service Item -->
+          <div class="animate_top sg oi pi zq ml il am cn _m">
+            <img src="images/icon-06.svg" alt="Icon" />
+            <h4 class="ek zj kk wm nb _b">Accounting Expertise</h4>
+            <p>Expertise in CIFRS-SME standards and financial logic.</p>
+          </div>
+
+          <!-- Service Item -->
+          <div class="animate_top sg oi pi zq ml il am cn _m">
+            <img src="images/icon-07.svg" alt="Icon" />
+            <h4 class="ek zj kk wm nb _b">CBC Integration</h4>
+            <p>In-depth knowledge of CBC extraction and regulatory templates.</p>
+          </div>
+
+          <!-- Service Item -->
+          <div class="animate_top sg oi pi zq ml il am cn _m">
+            <img src="images/icon-05.svg" alt="Icon" />
+            <h4 class="ek zj kk wm nb _b">Loan & Finance</h4>
+            <p>Automated disbursement, repayment, and Journal Entry processing.</p>
+          </div>
+
+          <!-- Service Item -->
+          <div class="animate_top sg oi pi zq ml il am cn _m">
+            <img src="images/icon-06.svg" alt="Icon" />
+            <h4 class="ek zj kk wm nb _b">Real-time Dashboards</h4>
+            <p>Comprehensive reporting and real-time operational summaries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Services End ===== -->
+
+    <!-- ===== Testimonials Start ===== -->
+    <section class="hj rp hr">
+      <!-- Section Title Start -->
+      <div
+        x-data="{ sectionTitle: `Client Trust`, sectionTitleText: `Hear from the RCIs and MFIs that have modernized with our ecosystem.`}">
+        <div class="animate_top bb ze rj ki xn vq">
+          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
+          </h2>
+          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+        </div>
+      </div>
+      <!-- Section Title End -->
+
+      <div class="bb ze ki xn ar">
+        <div class="animate_top jb cq">
+          <!-- Slider main container -->
+          <div class="swiper testimonial-01">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="i hh rm sg vk xm bi qj">
+                  <!-- Border Shape -->
+                  <span class="rc je md/2 gh xg h q r"></span>
+                  <span class="rc je md/2 mh yg h q p"></span>
+
+                  <div class="tc sf rn tn un zf dp">
+                    <img class="bf" src="images/testimonial.png" alt="User" />
+
+                    <div>
+                      <img src="images/icon-quote.svg" alt="Quote" />
+                      <p class="ek ik xj _p kc fb">
+                        The transition to FinzCore 360 was seamless. Their team combines high-level IT skills with deep
+                        microfinance operational knowledge.
+                      </p>
+
+                      <div class="tc yf vf">
+                        <div>
+                          <span class="rc ek xj kk wm zb">Sokha Lim</span>
+                          <span class="rc">CEO @Partner RCI</span>
+                        </div>
+
+                        <img class="rk" src="images/brand-light-02.svg" alt="Brand" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Testimonials End ===== -->
+
+    <!-- ===== Clients Start ===== -->
+    <section class="pj vp mr">
+      <!-- Section Title Start -->
+      <div
+        x-data="{ sectionTitle: `Our Partners`, sectionTitleText: `Trusted by Cambodia's leading Rural Credit Institutions.`}">
+        <div class="animate_top bb ze rj ki xn vq">
+          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
+          </h2>
+          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
+        </div>
+      </div>
+      <!-- Section Title End -->
+
+      <div class="bb ze ah ch pm hj xp ki xn 2xl:ud-px-49 bc">
+        <div class="wc rf qn zf cp kq xf wf">
+          <a href="#!" class="rc animate_top">
+            <img class="tk ml il zl om" src="images/brand-light-01.svg" alt="Partner" />
+          </a>
+          <a href="#!" class="rc animate_top">
+            <img class="tk ml il zl om" src="images/brand-light-02.svg" alt="Partner" />
+          </a>
+          <a href="#!" class="rc animate_top">
+            <img class="tk ml il zl om" src="images/brand-light-03.svg" alt="Partner" />
+          </a>
+          <a href="#!" class="rc animate_top">
+            <img class="tk ml il zl om" src="images/brand-light-04.svg" alt="Partner" />
+          </a>
+          <a href="#!" class="rc animate_top">
+            <img class="tk ml il zl om" src="images/brand-light-05.svg" alt="Partner" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Clients End ===== -->
+
+    <!-- ===== Demo/Contact Engine Start ===== -->
+    <section id="demo" class="i pg gh ji">
+      <!-- Bg Shape -->
+      <img class="h p q" src="images/shape-16.svg" alt="Bg Shape" />
+
+      <div class="bb ye i z-10 ki xn dr">
+        <div class="tc uf sn tn un gg">
+          <div class="animate_left to/2">
+            <h2 class="fk vj zp pr lk ac">
+              Ready to Modernize Your Institution?
+            </h2>
+            <p class="lk">
+              Request a demo of the unified FinzTrust ecosystem today. Our team will consult on best practices and CRS
+              support.
+            </p>
+          </div>
+          <div class="animate_right bf">
+            <a href="mailto:info@finztrust.com" class="vc ek kk hh rg ol il cm gi hi">
+              Email Us for Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Demo/Contact Engine End ===== -->
+  </main>
+  <!-- ===== Footer Start ===== -->
+  <footer>
+    <div class="bb ze ki xn 2xl:ud-px-0">
+      <!-- Footer Top -->
+      <div class="ji gp">
+        <div class="tc uf ap gg fp">
+          <div class="animate_top zd/2 to/4">
+            <a href="index.html" class="flex items-center gap-2 mb-4">
+              <img src="images/logo-light.svg" alt="Logo" class="om h-8" />
+              <img src="images/logo-dark.svg" alt="Logo" class="xc nm h-8" />
+              <span class="text-xl font-bold">FinzTrust</span>
+            </a>
+
+            <p class="lc fb">Your trusted partner in providing innovative core banking systems to MFIs and RCIs.</p>
+
+            <ul class="tc wf cg">
+              <li>
+                <a href="#!">
+                  <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
+                      fill="" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="vd ro tc sf rn un gg vn">
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Quick Links</h4>
+              <ul>
+                <li><a href="index.html" class="sc xl vb">Ecosystem</a></li>
+                <li><a href="about.html" class="sc xl vb">About Us</a></li>
+                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Products</h4>
+              <ul>
+                <li><a href="finzcore.html" class="sc xl vb">FinzCore 360</a></li>
+                <li><a href="rci-app.html" class="sc xl vb">RCI Mobile App</a></li>
+                <li><a href="finzloan.html" class="sc xl vb">FinzLoan App</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Get Started</h4>
+              <ul>
+                <li><a href="demo.html" class="sc xl vb">Contact Us</a></li>
+                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
+        <div class="animate_top">
+          <p>&copy; 2026 FinzTrust. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== Back To Top Start ===== -->
+  <button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+    @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'uc' : scrollTop }">
+    <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path
+        d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+    </svg>
+  </button>
+
+  <script defer src="bundle.js"></script>
+</body>
+
+</html>

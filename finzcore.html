@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinzCore 360 | FinzTrust</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="style.css" rel="stylesheet">
+  <link href="responsive.css" rel="stylesheet">
+  <style>
+    .logo-gradient-text { background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+    .logo-gradient-bg { background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%); }
+    .glass-card { backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
+    .hover-lift { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .hover-lift:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25); }
+    .timeline-stem { position: absolute; left: 27px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, #20CA66 10%, #4E6BFF 90%, transparent); opacity: 0.2; }
+  </style>
+</head>
+<body x-data="{ page: 'finzcore', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+  x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+  :class="{'b eh': darkMode === true}">
+  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }" @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
+    <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+      <div class="vd to/4 tc wf yf">
+        <a href="index.html" class="tc wf gap-2">
+          <img class="om h-7" src="images/logo-light.svg" alt="Logo Light" />
+          <img class="xc nm h-8" src="images/logo-dark.svg" alt="Logo Dark" />
+          <span class="xj gk oc">FinzTrust</span>
+        </a>
+        <!-- Hamburger Toggle BTN -->
+        <button class="po rc" @click="navigationOpen = !navigationOpen">
+          <span class="rc i pf re pd">
+            <span class="du-block h q vd yc">
+              <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+              <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+            </span>
+            <span class="du-block h q vd yc lf">
+              <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+              <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+            </span>
+          </span>
+        </button>
+        <!-- Hamburger Toggle BTN -->
+      </div>
+      <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
+        <nav>
+          <ul class="tc _o sf yo cg ep">
+            <li><a href="index.html" class="xl">Ecosystem</a></li>
+            <li><a href="finzcore.html" class="xl mk">FinzCore 360</a></li>
+            <li><a href="rci-app.html" class="xl">RCI App</a></li>
+            <li><a href="finzloan.html" class="xl">FinzLoan</a></li>
+            <li><a href="about.html" class="xl">About Us</a></li>
+          </ul>
+        </nav>
+        <div class="tc wf ig pb no">
+          <a href="demo.html" class="ek pk xl lg:bg-blue-600 lg:text-white lg:px-6 lg:py-2.5 lg:rounded-full lg:ml-4 shadow-lg font-semibold">Request Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="ji gp uq pg relative overflow-hidden bg-white dark:bg-black">
+      <div class="bb ze ki xn wq">
+        <div class="tc wf gg qq items-center">
+          <div class="animate_left jn/2">
+            <h4 class="ek yj mk gb inline-block px-4 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 font-semibold mb-4 text-sm uppercase tracking-wider text-blue-600">Enterprise Solution</h4>
+            <h1 class="fk vj zp pr logo-gradient-text wm qb text-5xl md:text-6xl mb-6">FinzCore 360</h1>
+            <p class="uo text-lg mb-8">The robust and fully-compliant core banking engine powering Microfinance and Rural Credit institutions across Cambodia.</p>
+            <div class="flex gap-8 border-t border-gray-100 dark:border-gray-800 pt-8 mt-8">
+              <div>
+                <h3 class="ck gk mk">100+</h3>
+                <p class="text-sm opacity-70">Active Instutions</p>
+              </div>
+              <div>
+                <h3 class="ck gk nh">1.2M+</h3>
+                <p class="text-sm opacity-70">Lives Impacted</p>
+              </div>
+              <div>
+                <h3 class="ck gk mk">NBC</h3>
+                <p class="text-sm opacity-70">Fully Compliant</p>
+              </div>
+            </div>
+          </div>
+          <div class="animate_right jn/2 relative group">
+            <div class="h -inset-3 logo-gradient-bg sg al sk group-hover:rk transition duration-1000 blur-2xl"></div>
+            <img src="images/finzcore_360_mockup_clean.png" alt="FinzCore 360" class="vd sg vk i hover-lift" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Capabilities -->
+    <section class="ji gp uq pg bg-gray-50 dark:bg-gray-900/50">
+      <div class="bb ze ki xn wq">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Item 1 -->
+          <div class="animate_top glass-card p-8 sg hover-lift tc sf gap-6">
+            <div class="logo-gradient-bg ne id sg tc wf xf lk vk flex-none">
+              <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-xl gk mb-2">Enterprise Governance</h4>
+              <p class="text-sm opacity-70 leading-relaxed">Secure internal controls with multi-level approval hierarchies and granular staff identity management.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="animate_top glass-card p-8 sg hover-lift tc sf gap-6">
+            <div class="logo-gradient-bg ne id sg tc wf xf lk vk flex-none">
+              <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-xl gk mb-2">Instant NBC E-Filing</h4>
+              <p class="text-sm opacity-70 leading-relaxed">Automatic generation of NBC Monthly Reports and E-Filing templates for regulatory compliance.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="animate_top glass-card p-8 sg hover-lift tc sf gap-6">
+            <div class="logo-gradient-bg ne id sg tc wf xf lk vk flex-none">
+              <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+            </div>
+            <div>
+              <h4 class="text-xl gk mb-2">Deep CBC Integration</h4>
+              <p class="text-sm opacity-70 leading-relaxed">Compliant extraction templates for Credit Bureau Cambodia regulatory requirements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="ji gp uq pg relative">
+      <div class="bb ze ki xn wq">
+        <div class="tc wf gg qq items-center">
+          <div class="animate_left jn/2">
+            <h2 class="fk vj zp pr kk wm qb text-4xl mb-12">The Integrated Loan Ecosystem</h2>
+            <div class="tc sf gap-8 relative">
+              <div class="timeline-stem"></div>
+              
+              <!-- Timeline Step 1 -->
+              <div class="tc wf gap-8 group hover-lift p-8 rounded-3xl glass-card relative z-1">
+                <div class="ne id rg logo-gradient-bg tc wf xf lk vk shadow-xl flex-none ring-4 ring-white/10">
+                  <span class="gk text-lg">1</span>
+                </div>
+                <div>
+                  <h4 class="gk text-2xl mb-2">Digital Disbursement</h4>
+                  <p class="opacity-70 text-base leading-relaxed">Automated processing pipeline from digital signature to instant approval and wallet disbursement in seconds.</p>
+                </div>
+              </div>
+
+              <!-- Timeline Step 2 -->
+              <div class="tc wf gap-8 group hover-lift p-8 rounded-3xl glass-card relative z-1">
+                <div class="ne id rg logo-gradient-bg tc wf xf lk vk shadow-xl flex-none ring-4 ring-white/10">
+                  <span class="gk text-lg">2</span>
+                </div>
+                <div>
+                  <h4 class="gk text-2xl mb-2">Intelligent Repayment</h4>
+                  <p class="opacity-70 text-base leading-relaxed">Sophisticated logic for interest recovery and principal scheduling tailored to specific MFI product types.</p>
+                </div>
+              </div>
+
+              <!-- Timeline Step 3 -->
+              <div class="tc wf gap-8 group hover-lift p-8 rounded-3xl glass-card relative z-1">
+                <div class="ne id rg logo-gradient-bg tc wf xf lk vk shadow-xl flex-none ring-4 ring-white/10">
+                  <span class="gk text-lg">3</span>
+                </div>
+                <div>
+                  <h4 class="gk text-2xl mb-2">Institutional Compliance</h4>
+                  <p class="opacity-70 text-base leading-relaxed">Automatic generation of regulatory Journal Entries and specialized NBC Monthly reporting snapshots.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="animate_right jn/2 relative text-right">
+             <div class="absolute -ud-z-1 vd yc fh blur-3xl scale-125"></div>
+             <img src="images/finz_ecosystem_mockup_clean.png" alt="Compliance" class="sg vk inline-block" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ===== Footer Start ===== -->
+  <footer>
+    <div class="bb ze ki xn 2xl:ud-px-0">
+      <div class="ji gp text-center md:text-left">
+        <div class="tc uf ap gg fp">
+          <div class="animate_top zd/2 to/4">
+            <a href="index.html" class="tc wf gap-2 mb-4 justify-center md:justify-start">
+              <img src="images/logo-light.svg" alt="Logo" class="om h-8" />
+              <img src="images/logo-dark.svg" alt="Logo" class="xc nm h-8" />
+              <span class="xj gk oc">FinzTrust</span>
+            </a>
+            <p class="lc fb">Empowering Cambodia's financial landscape with elite core banking technology since 2012.</p>
+          </div>
+
+          <div class="vd ro tc sf rn un gg vn text-center md:text-left">
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="index.html" class="sc xl vb">Ecosystem</a></li>
+                <li><a href="about.html" class="sc xl vb">About Us</a></li>
+                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Products</h4>
+              <ul class="space-y-2">
+                <li><a href="finzcore.html" class="sc xl vb">FinzCore 360</a></li>
+                <li><a href="rci-app.html" class="sc xl vb">RCI Mobile App</a></li>
+                <li><a href="finzloan.html" class="sc xl vb">FinzLoan App</a></li>
+              </ul>
+            </div>
+
+            <div class="animate_top">
+              <h4 class="kk wm tj ec">Get Started</h4>
+              <ul class="space-y-2">
+                <li><a href="demo.html" class="sc xl vb">Contact Us</a></li>
+                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj border-t border-gray-100 dark:border-gray-800">
+        <div class="animate_top">
+          <p>&copy; 2026 FinzTrust. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+    @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'uc' : scrollTop }">
+    <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+    </svg>
+  </button>
+
+  <script defer src="bundle.js"></script>
+</body>
+</html>
