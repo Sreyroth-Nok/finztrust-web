@@ -10,8 +10,8 @@
   <link href="responsive.css" rel="stylesheet">
   <link href="tailwind-patch.css" rel="stylesheet">
   <style>
-    .logo-gradient-text { background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
-    .logo-gradient-bg { background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%); }
+    .logo-gradient-text { background: #007A53; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
+    .logo-gradient-bg { background: #007A53; }
     .glass-card { backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
     .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
@@ -20,46 +20,8 @@
 <body x-data="{ page: 'rci-app', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
   x-init="darkMode = JSON.parse(localStorage.getItem('darkMode')); $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
   :class="{'b eh': darkMode === true}">
-  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }" @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
-    <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
-      <div class="vd to/4 tc wf yf">
-        <a href="index.html" class="tc wf gap-2">
-          <img class="om h-7" src="images/logo-light.svg" alt="Logo Light" />
-          <img class="xc nm h-8" src="images/logo-dark.svg" alt="Logo Dark" />
-          <span class="xj gk oc">FinzTrust</span>
-        </a>
-        <!-- Hamburger Toggle BTN -->
-        <button class="po rc" @click="navigationOpen = !navigationOpen">
-          <span class="rc i pf re pd">
-            <span class="du-block h q vd yc">
-              <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
-              <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
-              <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
-            </span>
-            <span class="du-block h q vd yc lf">
-              <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
-              <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
-            </span>
-          </span>
-        </button>
-        <!-- Hamburger Toggle BTN -->
-      </div>
-      <div id="premium-mobile-nav" class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
-        <nav>
-          <ul class="tc _o sf yo cg ep">
-            <li><a href="index.html" class="xl">Ecosystem</a></li>
-            <li><a href="finzcore.html" class="xl">FinzCore 360</a></li>
-            <li><a href="rci-app.html" class="xl mk">RCI App</a></li>
-            <li><a href="finzloan.html" class="xl">FinzLoan</a></li>
-            <li><a href="about.html" class="xl">About Us</a></li>
-          </ul>
-        </nav>
-        <div class="tc wf ig pb no" style="display:flex;align-items:center;">
-          <a href="demo.html" class="demo-btn-nav">Request Demo</a>
-        </div>
-      </div>
-    </div>
-  </header>
+  
+  <script src="shared-header.js"></script>
   <main>
     <!-- Hero Section -->
     <section class="ji gp uq pg relative overflow-hidden">
@@ -72,14 +34,14 @@
             <h1 class="fk vj zp pr logo-gradient-text wm qb text-5xl md:text-6xl mb-6">RCI Mobile App</h1>
             <p class="uo mb-8 text-lg lg:pr-20">Empower your field agents with the ultimate mobility tool. Complete loan cycles from the palm of their hand, anywhere in Cambodia.</p>
             <div class="flex flex-wrap gap-4">
-               <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
+               <!-- <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
                   <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                   <span class="text-sm font-semibold">Real-time Sync</span>
                </div>
                <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-gray-800 shadow-sm border border-gray-100 dark:border-gray-700">
                   <div class="w-2 h-2 rounded-full bg-blue-500"></div>
                   <span class="text-sm font-semibold">Offline Ready</span>
-               </div>
+               </div> -->
             </div>
           </div>
           <div class="animate_right jn/2 relative group">
@@ -101,113 +63,62 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Feature 1 -->
           <div class="animate_top glass-card p-8 sg hover-lift group text-center">
-            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#E63946;">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#007A53;">
               <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
-            <h4 class="font-bold text-lg gk mb-2" style="color:#E63946;">Geo-Tagged Collections</h4>
+            <h4 class="font-bold text-lg gk mb-2" style="color:#007A53;">Geo-Tagged Collections</h4>
             <p class="text-sm leading-relaxed" style="opacity:0.65;">Ensure collection accuracy with GPS verification and instant receipt generation.</p>
           </div>
 
           <!-- Feature 2 -->
           <div class="animate_top glass-card p-8 sg hover-lift group text-center">
-            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#20CA66;">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#007A53;">
               <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             </div>
-            <h4 class="font-bold text-lg gk mb-2" style="color:#20CA66;">On-Field Origination</h4>
+            <h4 class="font-bold text-lg gk mb-2" style="color:#007A53;">On-Field Origination</h4>
             <p class="text-sm leading-relaxed" style="opacity:0.65;">Register clients and submit loan applications directly from the field — no office visit needed.</p>
           </div>
 
           <!-- Feature 3 -->
           <div class="animate_top glass-card p-8 sg hover-lift group text-center">
-            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#4E6BFF;">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#007A53;">
               <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
             </div>
-            <h4 class="font-bold text-lg gk mb-2" style="color:#4E6BFF;">Offline Mode</h4>
+            <h4 class="font-bold text-lg gk mb-2" style="color:#007A53;">Offline Mode</h4>
             <p class="text-sm leading-relaxed" style="opacity:0.65;">Continue operations in areas with poor connectivity. Auto-syncs when online.</p>
           </div>
 
           <!-- Feature 4 -->
           <div class="animate_top glass-card p-8 sg hover-lift group text-center">
-            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#FFBD3F;">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#007A53;">
               <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
             </div>
-            <h4 class="font-bold text-lg gk mb-2" style="color:#FFBD3F;">Route Optimization</h4>
+            <h4 class="font-bold text-lg gk mb-2" style="color:#007A53;">Route Optimization</h4>
             <p class="text-sm leading-relaxed" style="opacity:0.65;">Intelligent daily route planning that maximizes agent coverage and collection efficiency.</p>
           </div>
 
           <!-- Feature 5 -->
           <div class="animate_top glass-card p-8 sg hover-lift group text-center">
-            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#E63946;">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#007A53;">
               <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
             </div>
-            <h4 class="font-bold text-lg gk mb-2" style="color:#E63946;">Digital Receipts</h4>
+            <h4 class="font-bold text-lg gk mb-2" style="color:#007A53;">Digital Receipts</h4>
             <p class="text-sm leading-relaxed" style="opacity:0.65;">Instant SMS and PDF receipts sent to borrowers after every collection — paperless and auditable.</p>
           </div>
 
           <!-- Feature 6 -->
           <div class="animate_top glass-card p-8 sg hover-lift group text-center">
-            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#20CA66;">
+            <div class="ne id sg tc wf xf lk vk mx-auto mb-6 group-hover:scale-110 transition duration-300" style="background:#007A53;">
               <svg class="he kd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
-            <h4 class="font-bold text-lg gk mb-2" style="color:#20CA66;">Team Management</h4>
+            <h4 class="font-bold text-lg gk mb-2" style="color:#007A53;">Team Management</h4>
             <p class="text-sm leading-relaxed" style="opacity:0.65;">Supervisor dashboards to monitor agent performance, targets, and collections in real time.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
-  <!-- ===== Footer Start ===== -->
-  <footer>
-    <div class="bb ze ki xn 2xl:ud-px-0">
-      <div class="ji gp text-center md:text-left">
-        <div class="tc uf ap gg fp">
-          <div class="animate_top zd/2 to/4">
-            <a href="index.html" class="flex items-center gap-2 mb-4 justify-center md:justify-start">
-              <img src="images/logo-light.svg" alt="Logo" class="om h-8" />
-              <img src="images/logo-dark.svg" alt="Logo" class="xc nm h-8" />
-              <span class="text-xl font-bold">FinzTrust</span>
-            </a>
-            <p class="lc fb">Your trusted partner in providing innovative core banking systems to MFIs and RCIs.</p>
-          </div>
-
-          <div class="vd ro tc sf rn un gg vn text-center md:text-left">
-            <div class="animate_top">
-              <h4 class="kk wm tj ec">Quick Links</h4>
-              <ul class="space-y-2">
-                <li><a href="index.html" class="sc xl vb">Ecosystem</a></li>
-                <li><a href="about.html" class="sc xl vb">About Us</a></li>
-                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
-              </ul>
-            </div>
-
-            <div class="animate_top">
-              <h4 class="kk wm tj ec">Products</h4>
-              <ul class="space-y-2">
-                <li><a href="finzcore.html" class="sc xl vb">FinzCore 360</a></li>
-                <li><a href="rci-app.html" class="sc xl vb">RCI Mobile App</a></li>
-                <li><a href="finzloan.html" class="sc xl vb">FinzLoan App</a></li>
-              </ul>
-            </div>
-
-            <div class="animate_top">
-              <h4 class="kk wm tj ec">Get Started</h4>
-              <ul class="space-y-2">
-                <li><a href="demo.html" class="sc xl vb">Contact Us</a></li>
-                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj border-t border-gray-100 dark:border-gray-800">
-        <div class="animate_top">
-          <p>&copy; 2026 FinzTrust. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <script src="shared-footer.js"></script>
   <button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
     @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'uc' : scrollTop }">
     <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -8,16 +8,8 @@
 
 img { max-width: 100%; height: auto; display: block; }
 
-/* Prevent horizontal overflow on every page */
-html, body { overflow-x: hidden; }
-
-/* --- Base mobile resets ------------------------------------ */
-*, *::before, *::after { box-sizing: border-box; }
-
-img { max-width: 100%; height: auto; display: block; }
-
-/* Prevent horizontal overflow on every page */
-html, body { overflow-x: hidden; }
+/* Prevent horizontal overflow causing double scrollbars */
+body { overflow-x: hidden; }
 
 /* ============================================================
    NAVBAR RESPONSIVE STYLES
@@ -101,13 +93,13 @@ html, body { overflow-x: hidden; }
   .vd.wo\/4 .tc.wf.ig.pb.no a {
     display: block !important;
     padding: 0.875rem 1.5rem !important;
-    background: linear-gradient(135deg, #E63946, #4E6BFF) !important;
+    background: linear-gradient(135deg, #007A53, #007A53) !important;
     color: #fff !important;
     border-radius: 0.75rem !important;
     text-align: center !important;
     font-weight: 700 !important;
     font-size: 0.95rem !important;
-    box-shadow: 0 4px 20px rgba(78,107,255,0.4) !important;
+    box-shadow: 0 4px 20px rgba(0,122,83,0.4) !important;
   }
 
   /* Overlay backdrop when nav is open */

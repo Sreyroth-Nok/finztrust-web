@@ -11,7 +11,7 @@
   <link href="responsive.css" rel="stylesheet">
   <style>
     .logo-gradient-text {
-      background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%);
+      background: #007A53;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -19,7 +19,7 @@
     }
 
     .logo-gradient-bg {
-      background: linear-gradient(135deg, #E63946 0%, #20CA66 33%, #4E6BFF 66%, #FFBD3F 100%);
+      background: #007A53;
     }
   </style>
 </head>
@@ -29,78 +29,16 @@
          darkMode = JSON.parse(localStorage.getItem('darkMode'));
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
   :class="{'b eh': darkMode === true}">
-  <!-- ===== Header Start ===== -->
-  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
-    @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
-    <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
-      <div class="vd to/4 tc wf yf">
-        <a href="index.html" class="flex items-center gap-2">
-          <img class="om h-7" src="images/logo-light.svg" alt="Logo Light" />
-          <img class="xc nm h-8" src="images/logo-dark.svg" alt="Logo Dark" />
-          <span class="xj gk oc">FinzTrust</span>
-        </a>
-
-        <!-- Hamburger Toggle BTN -->
-        <button class="po rc" @click="navigationOpen = !navigationOpen">
-          <span class="rc i pf re pd">
-            <span class="du-block h q vd yc">
-              <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
-              <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
-              <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
-            </span>
-            <span class="du-block h q vd yc lf">
-              <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
-              <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
-            </span>
-          </span>
-        </button>
-        <!-- Hamburger Toggle BTN -->
-      </div>
-
-      <div id="premium-mobile-nav" class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
-        <nav>
-          <ul class="tc _o sf yo cg ep">
-            <li><a href="index.html" class="xl mk">Ecosystem</a></li>
-            <li><a href="finzcore.html" class="xl">FinzCore 360</a></li>
-            <li><a href="rci-app.html" class="xl">RCI App</a></li>
-            <li><a href="finzloan.html" class="xl">FinzLoan</a></li>
-            <li><a href="about.html" class="xl">About Us</a></li>
-          </ul>
-        </nav>
-
-        <div class="tc wf ig pb no">
-          <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
-            <label class="rc ab i">
-              <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="pf vd yc uk h r za ab" />
-              <!-- Icon Sun -->
-              <svg :class="{ 'wn' : page === 'home', 'xh' : page === 'home' && stickyMenu }" class="th om" width="25"
-                height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12.0908 18.6363C10.3549 18.6363 8.69 17.9467 7.46249 16.7192C6.23497 15.4916 5.54537 13.8268 5.54537 12.0908C5.54537 10.3549 6.23497 8.69 7.46249 7.46249C8.69 6.23497 10.3549 5.54537 12.0908 5.54537C13.8268 5.54537 15.4916 6.23497 16.7192 7.46249C17.9467 8.69 18.6363 10.3549 18.6363 12.0908C18.6363 13.8268 17.9467 15.4916 16.7192 16.7192C15.4916 17.9467 13.8268 18.6363 12.0908 18.6363ZM12.0908 16.4545C13.2481 16.4545 14.358 15.9947 15.1764 15.1764C15.9947 14.358 16.4545 13.2481 16.4545 12.0908C16.4545 10.9335 15.9947 9.8236 15.1764 9.00526C14.358 8.18692 13.2481 7.72718 12.0908 7.72718C10.9335 7.72718 9.8236 8.18692 9.00526 9.00526C8.18692 9.8236 7.72718 10.9335 7.72718 12.0908C7.72718 13.2481 8.18692 14.358 9.00526 15.1764C9.8236 15.9947 10.9335 16.4545 12.0908 16.4545ZM10.9999 0.0908203H13.1817V3.36355H10.9999V0.0908203ZM10.9999 20.8181H13.1817V24.0908H10.9999V20.8181ZM2.83446 4.377L4.377 2.83446L6.69082 5.14828L5.14828 6.69082L2.83446 4.37809V4.377ZM17.4908 19.0334L19.0334 17.4908L21.3472 19.8046L19.8046 21.3472L17.4908 19.0334ZM19.8046 2.83337L21.3472 4.377L19.0334 6.69082L17.4908 5.14828L19.8046 2.83446V2.83337ZM5.14828 17.4908L6.69082 19.0334L4.377 21.3472L2.83446 19.8046L5.14828 17.4908ZM24.0908 10.9999V13.1817H20.8181V10.9999H24.0908ZM3.36355 10.9999V13.1817H0.0908203V10.9999H3.36355Z"
-                  fill="" />
-              </svg>
-              <!-- Icon Sun -->
-              <img class="xc nm" src="images/icon-moon.svg" alt="Moon" />
-            </label>
-          </div>
-
-          <a href="demo.html" class="demo-btn-nav">Request Demo</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== Header End ===== -->
-
+  <script src="shared-header.js"></script>
   <main>
     <!-- ===== Hero Start ===== -->
-    <section id="home" class="ji gp uq pg relative overflow-hidden bg-white dark:bg-black">
+    <section id="home" class="ji gp uq pg relative overflow-hidden bg-white dark:bg-black" style="position: relative; overflow: hidden; contain: paint;">
       <!-- Ambient background glow -->
       <div
-        style="position:absolute;top:-20%;right:-10%;width:60%;height:130%;background:radial-gradient(ellipse at center, rgba(78,107,255,0.06) 0%, transparent 70%);pointer-events:none;z-index:0;">
+        style="position:absolute;top:-20%;right:-10%;width:60%;height:130%;background:radial-gradient(ellipse at center, rgba(0,122,83,0.06) 0%, transparent 70%);pointer-events:none;z-index:0;">
       </div>
       <div
-        style="position:absolute;bottom:-10%;left:5%;width:40%;height:60%;background:radial-gradient(ellipse at center, rgba(31,154,82,0.05) 0%, transparent 70%);pointer-events:none;z-index:0;">
+        style="position:absolute;bottom:-10%;left:5%;width:40%;height:60%;background:radial-gradient(ellipse at center, rgba(0,122,83,0.05) 0%, transparent 70%);pointer-events:none;z-index:0;">
       </div>
 
       <div class="bb ze ki xn wq" style="position:relative;z-index:1;">
@@ -125,17 +63,17 @@
             <div
               style="display:flex;gap:2rem;padding:1.5rem 0;margin-bottom:2rem;border-top:1px solid rgba(128,128,128,0.15);">
               <div>
-                <p class="gk" style="font-size:1.75rem;color:#1f9a52;margin-bottom:2px;">100+</p>
+                <p class="gk" style="font-size:1.75rem;color:#007A53;margin-bottom:2px;">100+</p>
                 <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Institutions</p>
               </div>
               <div style="width:1px;background:rgba(128,128,128,0.15);"></div>
               <div>
-                <p class="gk" style="font-size:1.75rem;color:#4E6BFF;margin-bottom:2px;">NBC</p>
+                <p class="gk" style="font-size:1.75rem;color:#007A53;margin-bottom:2px;">NBC</p>
                 <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Compliant</p>
               </div>
               <div style="width:1px;background:rgba(128,128,128,0.15);"></div>
               <div>
-                <p class="gk" style="font-size:1.75rem;color:#FFBD3F;margin-bottom:2px;">12+</p>
+                <p class="gk" style="font-size:1.75rem;color:#007A53;margin-bottom:2px;">12+</p>
                 <p style="font-size:0.8rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.05em;">Years</p>
               </div>
             </div>
@@ -143,7 +81,7 @@
             <!-- CTA Buttons -->
             <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
               <a href="demo.html"
-                style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2rem;border-radius:999px;font-weight:700;color:#fff;background:linear-gradient(135deg,#E63946 0%,#4E6BFF 100%);box-shadow:0 8px 30px rgba(78,107,255,0.35);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
+                style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2rem;border-radius:999px;font-weight:700;color:#fff;background:#007A53;box-shadow:0 8px 30px rgba(0,122,83,0.35);transition:transform 0.2s,box-shadow 0.2s;text-decoration:none;"
                 onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
                 Request a Demo
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -153,7 +91,7 @@
               </a>
               <a href="#products"
                 style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 2rem;border-radius:999px;font-weight:600;border:1.5px solid rgba(128,128,128,0.3);transition:border-color 0.2s,color 0.2s;text-decoration:none;"
-                onmouseover="this.style.borderColor='#4E6BFF'"
+                onmouseover="this.style.borderColor='#007A53'"
                 onmouseout="this.style.borderColor='rgba(128,128,128,0.3)'">
                 Explore Products →
               </a>
@@ -164,10 +102,10 @@
           <div class="animate_right jn/2 relative group" style="overflow:visible;">
             <!-- Gradient glow behind image -->
             <div
-              style="position:absolute;inset:-60px;background:radial-gradient(ellipse at center, rgba(31,154,82,0.18) 0%, rgba(78,107,255,0.12) 50%, transparent 75%);filter:blur(40px);pointer-events:none;z-index:0;transition:opacity 0.5s;"
+              style="position:absolute;inset:-60px;background:radial-gradient(ellipse at center, rgba(0,122,83,0.18) 0%, rgba(0,122,83,0.12) 50%, transparent 75%);filter:blur(40px);pointer-events:none;z-index:0;transition:opacity 0.5s;"
               class="group-hover:opacity-100"></div>
-            <img src="images/finz_ecosystem.png" alt="FinzTrust Ecosystem" class="vd hover-lift" style="position:relative;z-index:1;border-radius:1.5rem;max-width:100%;
-                     filter:drop-shadow(0 32px 60px rgba(31,154,82,0.2)) drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+            <img src="images/dashboard.png" alt="FinzTrust Ecosystem" class="vd hover-lift" style="position:relative;z-index:1;border-radius:1.5rem;max-width:100%;
+                     filter:drop-shadow(0 32px 60px rgba(0,122,83,0.2)) drop-shadow(0 8px 20px rgba(0,0,0,0.15));
                      transition:transform 0.4s cubic-bezier(0.165,0.84,0.44,1);" />
           </div>
 
@@ -177,12 +115,12 @@
     <!-- ===== Hero End ===== -->
 
     <!-- ===== Small Features Start ===== -->
-    <section id="features">
+    <section id="features" class="i pg" style="position: relative; overflow: hidden; contain: paint;">
       <div class="bb ze ki yn 2xl:ud-px-12.5">
         <div class="tc uf zo xf ap zf bp mq">
           <!-- Small Features Item -->
           <div class="animate_top kn to/3 tc cg oq">
-            <div class="tc wf xf cf ae cd rg" style="background-color: #E63946;">
+            <div class="tc wf xf cf ae cd rg" style="background-color: #007A53;">
               <img src="images/icon-01.svg" alt="Icon" />
             </div>
             <div>
@@ -193,7 +131,7 @@
 
           <!-- Small Features Item -->
           <div class="animate_top kn to/3 tc cg oq">
-            <div class="tc wf xf cf ae cd rg nh" style="background-color: #1f9a52;">
+            <div class="tc wf xf cf ae cd rg nh" style="background-color: #007A53;">
               <img src="images/icon-02.svg" alt="Icon" />
             </div>
             <div>
@@ -218,7 +156,7 @@
     <!-- ===== Small Features End ===== -->
 
     <!-- ===== About Start ===== -->
-    <section id="about" class="ji gp uq 2xl:ud-py-35 pg">
+    <section id="about" class="ji gp uq 2xl:ud-py-35 pg" style="position: relative; overflow: hidden; contain: paint;">
       <div class="bb ze ki xn wq">
         <div class="tc wf gg qq">
           <!-- About Images -->
@@ -256,7 +194,7 @@
     <!-- ===== About End ===== -->
 
     <!-- ===== Products Section (Customized from Team) ===== -->
-    <section id="products" class="i pg ji gp uq">
+    <section id="products" class="i pg ji gp uq relative overflow-hidden" style="position: relative; overflow: hidden; contain: paint;">
       <!-- Bg Shapes -->
       <span class="rc h s r vd fd/5 fh rm"></span>
       <img src="images/shape-08.svg" alt="Shape Bg" class="h q r" />
@@ -311,7 +249,7 @@
     <!-- ===== Products Section End ===== -->
 
     <!-- ===== Services Start ===== -->
-    <section class="lj tp kr">
+    <section class="lj tp kr i pg" style="position: relative; overflow: hidden; contain: paint;">
       <!-- Section Title Start -->
       <div
         x-data="{ sectionTitle: `The Team Up Advantage`, sectionTitleText: `Why MFIs and RCIs trust us to modernize their business environments.`}">
@@ -372,7 +310,7 @@
     <!-- ===== Services End ===== -->
 
     <!-- ===== Testimonials Start ===== -->
-    <section class="hj rp hr">
+    <section class="hj rp hr i pg" style="position: relative; overflow: hidden; contain: paint;">
       <!-- Section Title Start -->
       <div
         x-data="{ sectionTitle: `Client Trust`, sectionTitleText: `Hear from the RCIs and MFIs that have modernized with our ecosystem.`}">
@@ -427,16 +365,16 @@
     <!-- ===== Testimonials End ===== -->
 
     <!-- ===== Clients Start ===== -->
-    <section class="pj vp mr">
+    <section class="pj vp mr i pg" style="position: relative; overflow: hidden; contain: paint;">
       <!-- Section Title Start -->
-      <div
+      <!-- <div
         x-data="{ sectionTitle: `Our Partners`, sectionTitleText: `Trusted by Cambodia's leading Rural Credit Institutions.`}">
         <div class="animate_top bb ze rj ki xn vq">
           <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
           </h2>
           <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
         </div>
-      </div>
+      </div> -->
       <!-- Section Title End -->
 
       <div class="bb ze ah ch pm hj xp ki xn 2xl:ud-px-49 bc">
@@ -462,7 +400,7 @@
     <!-- ===== Clients End ===== -->
 
     <!-- ===== Demo/Contact Engine Start ===== -->
-    <section id="demo" class="i pg gh ji">
+    <section id="demo" class="i pg gh ji relative overflow-hidden" style="position: relative; overflow: hidden; contain: paint;">
       <!-- Bg Shape -->
       <img class="h p q" src="images/shape-16.svg" alt="Bg Shape" />
 
@@ -488,75 +426,8 @@
 
     <!-- ===== Demo/Contact Engine End ===== -->
   </main>
-  <!-- ===== Footer Start ===== -->
-  <footer>
-    <div class="bb ze ki xn 2xl:ud-px-0">
-      <!-- Footer Top -->
-      <div class="ji gp">
-        <div class="tc uf ap gg fp">
-          <div class="animate_top zd/2 to/4">
-            <a href="index.html" class="flex items-center gap-2 mb-4">
-              <img src="images/logo-light.svg" alt="Logo" class="om h-8" />
-              <img src="images/logo-dark.svg" alt="Logo" class="xc nm h-8" />
-              <span class="text-xl font-bold">FinzTrust</span>
-            </a>
-
-            <p class="lc fb">Your trusted partner in providing innovative core banking systems to MFIs and RCIs.</p>
-
-            <ul class="tc wf cg">
-              <li>
-                <a href="#!">
-                  <svg class="vh ul cl il" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
-                      fill="" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="vd ro tc sf rn un gg vn">
-            <div class="animate_top">
-              <h4 class="kk wm tj ec">Quick Links</h4>
-              <ul>
-                <li><a href="index.html" class="sc xl vb">Ecosystem</a></li>
-                <li><a href="about.html" class="sc xl vb">About Us</a></li>
-                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
-              </ul>
-            </div>
-
-            <div class="animate_top">
-              <h4 class="kk wm tj ec">Products</h4>
-              <ul>
-                <li><a href="finzcore.html" class="sc xl vb">FinzCore 360</a></li>
-                <li><a href="rci-app.html" class="sc xl vb">RCI Mobile App</a></li>
-                <li><a href="finzloan.html" class="sc xl vb">FinzLoan App</a></li>
-              </ul>
-            </div>
-
-            <div class="animate_top">
-              <h4 class="kk wm tj ec">Get Started</h4>
-              <ul>
-                <li><a href="demo.html" class="sc xl vb">Contact Us</a></li>
-                <li><a href="demo.html" class="sc xl vb">Request Demo</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer Bottom -->
-      <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
-        <div class="animate_top">
-          <p>&copy; 2026 FinzTrust. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
   <!-- ====== Back To Top Start ===== -->
+  <script src="shared-footer.js"></script>
   <button class="xc wf xf ie ld vg sr gh tr g sa ta _a" @click="window.scrollTo({top: 0, behavior: 'smooth'})"
     @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false" :class="{ 'uc' : scrollTop }">
     <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
